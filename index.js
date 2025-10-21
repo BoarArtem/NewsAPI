@@ -1,0 +1,10 @@
+import{a as i}from"./assets/vendor-ngrFHoWO.js";(function(){const r=document.createElement("link").relList;if(r&&r.supports&&r.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))s(e);new MutationObserver(e=>{for(const t of e)if(t.type==="childList")for(const c of t.addedNodes)c.tagName==="LINK"&&c.rel==="modulepreload"&&s(c)}).observe(document,{childList:!0,subtree:!0});function n(e){const t={};return e.integrity&&(t.integrity=e.integrity),e.referrerPolicy&&(t.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?t.credentials="include":e.crossOrigin==="anonymous"?t.credentials="omit":t.credentials="same-origin",t}function s(e){if(e.ep)return;e.ep=!0;const t=n(e);fetch(e.href,t)}})();const l="https://newsapi.org/v2/everything",u="7f2175b849ef4681bc58e348ea7100b8";async function d(o){const r={apiKey:u,q:o,pageSize:10,language:"ru"};try{return await i.get(l,{params:r})}catch(n){throw console.error("Ошибка при получении данных от сервера"),n}}function m(){const o={apiKey:u,q:"Bitcoin",pageSize:10,language:"ru"};return i.get(l,{params:o}).then(r=>console.log(r)).catch(r=>{console.log(r.message)})}const p=document.querySelector(".gallery"),a=document.querySelector(".form"),y=document.querySelector(".input-form");function h(){p.innerHTML=""}async function f(){try{a.addEventListener("submit",async o=>{o.preventDefault();const r=y.value.trim(),s=(await d(r)).data.articles;h(),b(s),console.log(r),r===""?console.log("Error"):f()})}catch(o){console.error(o.message)}finally{a.reset()}}function b(o){const r=o.map(({title:n,description:s,publishedAt:e,url:t,source:c,urlToImage:g})=>` 
+                <li class="gallery-item">
+                    <img src="${g}">
+                    <h2 class="gallery-title">${n}</h2>
+                    <p class="gallery-description">${s}</p>
+                    <p class="gallery-publichedAt">Опубликовано: ${e}</p>
+                    <a class="gallery-link" href="${t}">${c.name}</a>
+                </li>
+            `).join("");p.insertAdjacentHTML("beforeend",r)}m();f();
+//# sourceMappingURL=index.js.map
