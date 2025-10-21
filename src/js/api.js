@@ -7,7 +7,7 @@ export async function getNews(query) {
     const params = {
         apiKey: api,
         q: query,
-        pageSize: 10,
+        pageSize: 5,
         language: "ru"
     };
 
@@ -25,7 +25,7 @@ export function getAPIForDeveloper() {
     const params = {
         apiKey: api,
         q: "Bitcoin",
-        pageSize: 10,
+        pageSize: 5,
         language: "ru"
     };
 

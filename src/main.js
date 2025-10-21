@@ -41,7 +41,7 @@ function newsMarkup(newsTitle) {
         .map(({ title, description, publishedAt, url, source, urlToImage }) => {
             return ` 
                 <li class="gallery-item">
-                    <img src="${urlToImage}">
+                    <img src="${urlToImage}" class="gallery-img">
                     <h2 class="gallery-title">${title}</h2>
                     <p class="gallery-description">${description}</p>
                     <p class="gallery-publichedAt">Опубликовано: ${publishedAt}</p>
@@ -54,5 +54,4 @@ function newsMarkup(newsTitle) {
     galleryContainer.insertAdjacentHTML("beforeend", markup)
 }
 
-getAPIForDeveloper()
 renderNews()
