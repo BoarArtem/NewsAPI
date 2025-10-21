@@ -55,4 +55,3 @@ function newsMarkup(newsTitle) {
 }
 
 renderNews()
-getAPIForDeveloper()
