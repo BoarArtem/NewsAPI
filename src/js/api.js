@@ -1,14 +1,14 @@
 import axios from "axios"
 
-const url = "https://newsapi.org/v2/everything"
-const api = "7f2175b849ef4681bc58e348ea7100b8"
+const url = "https://gnews.io/api/v4/search"
+const api = "7b3b1b68eaf0145324516cf2b6d07dde"
 
 export async function getNews(query) {
     const params = {
-        apiKey: api,
+        apikey: api,
         q: query,
-        pageSize: 5,
-        language: "ru"
+        max: 5,
+        lang: "ru"
     };
 
     try {
@@ -23,16 +23,16 @@ export async function getNews(query) {
 
 export function getAPIForDeveloper() {
     const params = {
-        apiKey: api,
+        apikey: api,
         q: "Bitcoin",
-        pageSize: 5,
-        language: "ru"
+        max: 5,
+        lang: "ru"
     };
 
     return axios
         .get(url, { params })
         .then(response => {
-            return console.log(response);
+            return console.log(response.data.articles);
         })
         .catch(err => {
             console.log(err.message);

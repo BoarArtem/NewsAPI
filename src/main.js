@@ -38,10 +38,10 @@ async function renderNews() {
 
 function newsMarkup(newsTitle) {
     const markup = newsTitle
-        .map(({ title, description, publishedAt, url, source, urlToImage }) => {
+        .map(({ title, description, publishedAt, url, source, image }) => {
             return ` 
                 <li class="gallery-item">
-                    <img src="${urlToImage}" class="gallery-img">
+                    <img src="${image}" class="gallery-img">
                     <h2 class="gallery-title">${title}</h2>
                     <p class="gallery-description">${description}</p>
                     <p class="gallery-publichedAt">Опубликовано: ${publishedAt}</p>
@@ -55,3 +55,4 @@ function newsMarkup(newsTitle) {
 }
 
 renderNews()
+getAPIForDeveloper()
